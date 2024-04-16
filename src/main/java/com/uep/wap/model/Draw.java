@@ -17,7 +17,7 @@ public class Draw {
     private String matches;
 
     @OneToOne(mappedBy = "draw", cascade = CascadeType.ALL)
-    private Draw draw;
+    private Tournament tournament;
 
 
 

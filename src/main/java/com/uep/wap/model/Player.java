@@ -1,6 +1,7 @@
 package com.uep.wap.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Player")
@@ -17,6 +18,8 @@ public class Player {
     private String Successes;
 
     @ManyToMany(mappedBy = "players")
+    private List<Match> matches;
+
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     private User user;
 
