@@ -16,8 +16,9 @@ public class Draw {
     // check this later (what datatype)
     private String matches;
 
-    @OneToMany(mappedBy = "draw", cascade = CascadeType.ALL)
-    private List<Tournament> tournaments;
+    @OneToOne(mappedBy = "draw", cascade = CascadeType.ALL)
+    private Draw draw;
+
 
 
     public int getDraw_id() {

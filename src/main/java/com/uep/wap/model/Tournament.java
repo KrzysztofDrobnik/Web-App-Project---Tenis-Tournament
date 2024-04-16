@@ -1,6 +1,7 @@
 package com.uep.wap.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Tournament")
@@ -10,7 +11,7 @@ public class Tournament {
     @Column(name = "tournament_id")
     private int tournament_id;
     @Column(name = "starting_date")
-    private String startng_date;
+    private String starting_date;
     @Column(name = "ending_date")
     private String ending_date;
     @Column(name = "participants_number")
@@ -21,13 +22,24 @@ public class Tournament {
     private String category;
     @Column(name = "place")
     private String place;
-    @Column(name = "draws")
-    private String draws;
+
 
 
     @ManyToOne
     @JoinColumn(name = "organizer_id")
     private Organizer organizer;
+
+    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
+    private List<Match> matches;
+
+    @OneToOne
+    @JoinColumn(name = "draw_id")
+    private Draw draw;
+
+    @ManyToOne
+    @JoinColumn(name = "pricePool_id")
+    private Tournament tournament;
+
 
     public int getTournament_id() {
         return tournament_id;
@@ -39,12 +51,12 @@ public class Tournament {
     public Tournament(){
 
     }
-    public String getStartng_date() {
-        return startng_date;
+    public String getStarting_date() {
+        return starting_date;
     }
 
-    public void setStartng_date(String startng_date) {
-        this.startng_date = startng_date;
+    public void setStarting_date(String starting_date) {
+        this.starting_date = starting_date;
     }
 
     public String getEnding_date() {
@@ -87,11 +99,5 @@ public class Tournament {
         this.place = place;
     }
 
-    public String getDraws() {
-        return draws;
-    }
 
-    public void setDraws(String draws) {
-        this.draws = draws;
-    }
 }

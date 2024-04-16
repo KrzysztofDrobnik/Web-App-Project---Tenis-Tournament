@@ -17,7 +17,7 @@ public class Organizer {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "Organizer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "organizer", cascade = CascadeType.ALL)
     private List<Tournament> tournaments;
 
 

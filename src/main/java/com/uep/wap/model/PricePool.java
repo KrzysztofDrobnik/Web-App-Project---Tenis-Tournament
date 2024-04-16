@@ -1,6 +1,7 @@
 package com.uep.wap.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="PricePool")
@@ -16,7 +17,9 @@ public class PricePool {
     @Column(name = "additionalInfo")
     private String additionalInfo;
 
-    @OneToMany
+    @OneToMany(mappedBy = "pricePool_id", cascade = CascadeType.ALL)
+    private List<Tournament> tournaments;
+
     public int getPricePool_id() {
         return PricePool_id;
     }

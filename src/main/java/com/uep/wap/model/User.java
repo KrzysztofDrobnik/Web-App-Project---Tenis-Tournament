@@ -23,8 +23,14 @@ public class User {
     private String login;
     @Column(name = "password")
     private String password;
-    @Column(name = "player_id")
-    private int player_id;
+
+    @OneToOne
+    @JoinColumn(name = "player_id")
+    private Player player;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Roles role;
 
     public int getUser_id() {
         return user_id;
@@ -92,11 +98,5 @@ public class User {
         this.password = password;
     }
 
-    public int getPlayer_id() {
-        return player_id;
-    }
 
-    public void setPlayer_id(int player_id) {
-        this.player_id = player_id;
-    }
 }

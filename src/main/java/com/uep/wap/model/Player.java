@@ -16,6 +16,10 @@ public class Player {
     @Column(name = "Successes")
     private String Successes;
 
+    @ManyToMany(mappedBy = "players")
+    @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
+    private User user;
+
     public int getPlayer_id() {
         return player_id;
     }

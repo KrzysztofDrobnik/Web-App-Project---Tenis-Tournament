@@ -2,6 +2,7 @@ package com.uep.wap.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Roles")
@@ -15,6 +16,9 @@ public class Roles {
 
     @Column(name = "privileges")
     private String privileges;
+
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    private List<User> users;
 
 
     public int getRoles_id() {

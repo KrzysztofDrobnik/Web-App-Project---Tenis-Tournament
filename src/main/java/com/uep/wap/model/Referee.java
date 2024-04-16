@@ -1,6 +1,7 @@
 package com.uep.wap.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Referee")
@@ -13,6 +14,9 @@ public class Referee {
     private String first_name;
     @Column(name = "last_name")
     private String last_name;
+
+    @ManyToMany(mappedBy = "referees")
+    private List<Match> matches;
 
     public int getReferee_int() {
         return referee_int;

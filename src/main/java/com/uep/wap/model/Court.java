@@ -1,7 +1,7 @@
 package com.uep.wap.model;
 
 import javax.persistence.*;
-import java.awt.*;
+import java.util.List;
 
 @Entity
 @Table(name="Court")
@@ -14,6 +14,10 @@ public class Court {
     private String name;
     @Column(name = "surface")
     private String surface;
+
+    @ManyToMany(mappedBy = "courts")
+    private List<Match> matches;
+
 
     public int getCourt_id() {
         return court_id;

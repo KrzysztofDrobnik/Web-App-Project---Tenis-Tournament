@@ -19,8 +19,11 @@ public class Statistics {
     private int double_Faults;
     @Column(name = "winners")
     private int winners;
-    @Column(name = "match")
-    private String maetch;
+
+    @OneToOne
+    @JoinColumn(name = "match_id")
+    private Match match;
+
 
     public int getStatistics_id() {
         return statistics_id;
@@ -73,11 +76,5 @@ public class Statistics {
         this.winners = winners;
     }
 
-    public String getMaetch() {
-        return maetch;
-    }
 
-    public void setMaetch(String maetch) {
-        this.maetch = maetch;
-    }
 }
