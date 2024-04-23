@@ -1,56 +1,21 @@
-package com.uep.wap.model;
+package com.uep.wap.dto;
 
-import javax.persistence.*;
-import java.util.List;
+public class TournamentDTO {
 
-@Entity
-@Table(name="Tournament")
-public class Tournament {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tournament_id")
-    private int tournament_id;
-    @Column(name = "starting_date")
     private String starting_date;
-    @Column(name = "ending_date")
     private String ending_date;
-    @Column(name = "participants_number")
     private int participants_number;
-    @Column(name = "type")
     private String type;
-    @Column(name = "category")
     private String category;
-    @Column(name = "place")
     private String place;
 
+    /*
+    private int organizer_id;
+    private int draw_id;
+    private int PricePool_id;
 
+     */
 
-    @ManyToOne
-    @JoinColumn(name = "organizer_id")
-    private Organizer organizer;
-
-    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
-    private List<Match> matches;
-
-    @OneToOne
-    @JoinColumn(name = "draw_id")
-    private Draw draw;
-
-    @ManyToOne
-    @JoinColumn(name = "pricePool_id")
-    private PricePool pricePool_id;
-
-
-    public int getTournament_id() {
-        return tournament_id;
-    }
-
-    public void setTournament_id(int tournament_id) {
-        this.tournament_id = tournament_id;
-    }
-    public Tournament(){
-
-    }
     public String getStarting_date() {
         return starting_date;
     }
@@ -99,9 +64,31 @@ public class Tournament {
         this.place = place;
     }
 
-    public Tournament(String starting_date, String ending_date, int participants_number, String type, String category, String place){
+    /*
+    public int getOrganizer_id() {
+        return organizer_id;
+    }
 
+    public void setOrganizer_id(int organizer_id) {
+        this.organizer_id = organizer_id;
+    }
+
+    public int getDraw_id() {
+        return draw_id;
+    }
+
+    public void setDraw_id(int draw_id) {
+        this.draw_id = draw_id;
+    }
+
+    public int getPricePool_id() {
+        return PricePool_id;
+    }
+
+    public void setPricePool_id(int pricePool_id) {
+        this.PricePool_id = pricePool_id;
     }
 
 
+     */
 }

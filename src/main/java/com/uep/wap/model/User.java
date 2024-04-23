@@ -98,5 +98,9 @@ public class User {
         this.password = password;
     }
 
+    public User(String first_name, String last_name, String gender, int age, String email){
+
+    }
+
 
 }
