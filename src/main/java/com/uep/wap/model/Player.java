@@ -56,4 +56,7 @@ public class Player {
     public void setSuccesses(String successes) {
         Successes = successes;
     }
+
+   // public Player(int numberOfGames, int tournamentsWon, String successes){
+    // }
 }
