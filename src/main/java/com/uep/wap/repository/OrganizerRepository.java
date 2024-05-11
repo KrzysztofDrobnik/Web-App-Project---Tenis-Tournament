@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrganizerRepository extends CrudRepository<Organizer, Integer> {
+
+    Organizer findByName(String name);
 }
