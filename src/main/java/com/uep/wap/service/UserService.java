@@ -7,6 +7,8 @@ import com.uep.wap.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -27,6 +29,25 @@ public class UserService {
 
     public Iterable<User> getAllUsers(){
         return userRepository.findAll();
+    }
+
+    public Optional<User> getUserById(int user_id){
+        return userRepository.findById(user_id);
+    }
+
+    public User findUserByFirstName(String first_name){
+        return userRepository.findByFirstName(first_name);
+    }
+
+    public User findUserByLastName(String last_name){
+        return userRepository.findByLastName(last_name);
+    }
+    public User findUserByEmail(String user_email){
+        return userRepository.findByEmail(user_email);
+    }
+
+    public void deleteUserById(int user_id){
+        userRepository.deleteById(user_id);
     }
 
 

@@ -16,8 +16,8 @@ public class DrawService {
 
     public void addDraw(DrawDTO drawDTO){
         Draw draw = new Draw();
-        draw.setRound(draw.getRound());
-        draw.setMatches(draw.getMatches());
+        draw.setRound(drawDTO.getRound());
+        draw.setMatches(drawDTO.getMatches());
         drawRepository.save(draw);
         System.out.println("Draw added!");
     }

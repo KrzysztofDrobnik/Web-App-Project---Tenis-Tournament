@@ -17,7 +17,7 @@ public class RefereeService {
 
     public void addReferee(RefereeDTO refereeDTO){
         Referee referee = new Referee();
-        referee.setFirst_name(referee.getFirst_name());
+        referee.setFirst_name(refereeDTO.getFirst_name());
         referee.setLast_name(refereeDTO.getLast_name());
         refereeRepository.save(referee);
         System.out.println("Referee added!");

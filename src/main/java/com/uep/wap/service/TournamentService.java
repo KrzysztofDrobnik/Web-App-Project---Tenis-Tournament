@@ -7,6 +7,8 @@ import com.uep.wap.repository.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class TournamentService {
 
@@ -30,5 +32,21 @@ public class TournamentService {
 
     public Iterable<Tournament> getAllTournaments(){
         return tournamentRepository.findAll();
+    }
+
+    public Optional<Tournament> getTournamentById(int tournament_id){
+        return tournamentRepository.findById(tournament_id);
+    }
+
+    public void deleteTournamentById(int tournament_id){
+        tournamentRepository.deleteById(tournament_id);
+    }
+
+    public Tournament findTournamentByStartingDate(String starting_date){
+        return tournamentRepository.findByStartingDate(starting_date);
+    }
+
+    public Tournament findTournamentByEndingDate(String ending_date){
+        return tournamentRepository.findByEndingDate(ending_date);
     }
 }
