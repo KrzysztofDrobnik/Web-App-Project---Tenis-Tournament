@@ -8,4 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MatchRepository extends CrudRepository<Match, Integer> {
+
+    Match findByDate(String date);
+    Match findByScore(String score);
+    Match findByWinner(String winner);
 }

@@ -4,10 +4,7 @@ package com.uep.wap.controller;
 import com.uep.wap.dto.TournamentDTO;
 import com.uep.wap.model.Tournament;
 import com.uep.wap.service.TournamentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -25,6 +22,7 @@ public class TournamentController {
         return this.tournamentService.getAllTournaments();
     }
 
+    @PostMapping(path = "/tournaments")
     public String addTournament(@RequestBody TournamentDTO tournamentDTO){
 
         tournamentService.addTournament(tournamentDTO);

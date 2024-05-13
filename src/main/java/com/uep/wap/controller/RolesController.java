@@ -37,6 +37,7 @@ public class RolesController {
         return rolesService.findRolesById(roles_id);
     }
 
+    @GetMapping(path = "/roles{roles_name}")
     public Roles findRolesByName(@PathVariable String roles_name){
         return rolesService.findRolesByName(roles_name);
     }
