@@ -4,6 +4,11 @@ public class RefereeDTO {
 
     String first_name;
     String last_name;
+    String matchDate;
+
+    public String getMatchDate() {
+        return matchDate;
+    }
 
     public String getFirst_name() {
         return first_name;

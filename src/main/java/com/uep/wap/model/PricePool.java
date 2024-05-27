@@ -55,4 +55,5 @@ public class PricePool {
     public void setAdditionalInfo(String additionalInfo) {
         this.additionalInfo = additionalInfo;
     }
+
 }

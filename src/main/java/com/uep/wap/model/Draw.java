@@ -47,4 +47,10 @@ public class Draw {
     public void setMatches(String matches) {
         this.matches = matches;
     }
+
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
+    }
+
+
 }

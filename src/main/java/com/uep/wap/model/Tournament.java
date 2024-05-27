@@ -103,5 +103,17 @@ public class Tournament {
 
     }
 
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
+
+    public void setDraw(Draw draw) {
+        this.draw = draw;
+    }
+
+    public void setOrganizer(Organizer organizer) {
+        this.organizer = organizer;
+    }
+
 
 }

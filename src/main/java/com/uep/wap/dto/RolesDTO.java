@@ -4,6 +4,11 @@ public class RolesDTO {
 
     private String name;
     private String privileges;
+    private String userLastName;
+
+    public String getUserLastName() {
+        return userLastName;
+    }
 
     public String getName() {
         return name;

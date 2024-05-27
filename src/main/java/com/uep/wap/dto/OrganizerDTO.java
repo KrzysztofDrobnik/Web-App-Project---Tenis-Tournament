@@ -4,6 +4,11 @@ public class OrganizerDTO {
 
     String name;
     String description;
+    String tournamentStartingDate;
+
+    public String getTournamentStartingDate() {
+        return tournamentStartingDate;
+    }
 
     public String getName() {
         return name;

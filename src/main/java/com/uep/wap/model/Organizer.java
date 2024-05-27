@@ -45,4 +45,10 @@ public class Organizer {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void setTournaments(List<Tournament> tournaments) {
+        this.tournaments = tournaments;
+    }
+
+
 }

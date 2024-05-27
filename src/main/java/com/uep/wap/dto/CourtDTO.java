@@ -5,6 +5,7 @@ public class CourtDTO {
     String name;
     String surface;
 
+
     public String getName() {
         return name;
     }

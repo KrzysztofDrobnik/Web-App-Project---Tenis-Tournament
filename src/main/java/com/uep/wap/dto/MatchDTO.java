@@ -8,6 +8,22 @@ public class MatchDTO {
     String player_2;
     String score;
     String winner;
+    String courtName;
+    String refereeLastName;
+
+
+    public String getCourtName() {
+        return courtName;
+    }
+
+    public String getRefereeLastName() {
+        return refereeLastName;
+    }
+
+
+
+
+
 
     public String getDate() {
         return date;

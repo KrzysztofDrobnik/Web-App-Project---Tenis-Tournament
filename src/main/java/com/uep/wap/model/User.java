@@ -98,9 +98,12 @@ public class User {
         this.password = password;
     }
 
-    public User(String firstName, String lastName, String gender, int age, String email){
-
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
+    public void setRole(Roles role) {
+        this.role = role;
+    }
 
 }

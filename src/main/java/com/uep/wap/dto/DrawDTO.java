@@ -4,6 +4,11 @@ public class DrawDTO {
 
     int round;
     String matches;
+    String tournamentStartingDate;
+
+    public String getTournamentStartingDate() {
+        return tournamentStartingDate;
+    }
 
     public int getRound() {
         return round;

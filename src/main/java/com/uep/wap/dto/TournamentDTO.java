@@ -8,7 +8,16 @@ public class TournamentDTO {
     private String type;
     private String category;
     private String place;
+    private String matchDate;
+    private String organizerName;
 
+    public String getOrganizerName() {
+        return organizerName;
+    }
+
+    public String getMatchDate() {
+        return matchDate;
+    }
     /*
     private int organizer_id;
     private int draw_id;

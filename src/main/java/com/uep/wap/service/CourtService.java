@@ -2,11 +2,16 @@ package com.uep.wap.service;
 
 import com.uep.wap.dto.CourtDTO;
 import com.uep.wap.model.Court;
+import com.uep.wap.model.Match;
 import com.uep.wap.repository.CourtRepository;
+import com.uep.wap.repository.MatchRepository;
 import org.apache.coyote.ContinueResponseTiming;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,12 +20,16 @@ public class CourtService {
     @Autowired
     private CourtRepository courtRepository;
 
+
     public void addCourt(CourtDTO courtDTO){
         Court court = new Court();
         court.setName(courtDTO.getName());
         court.setSurface(courtDTO.getSurface());
         courtRepository.save(court);
         System.out.println("Court added!");
+
+
+
 
     }
 

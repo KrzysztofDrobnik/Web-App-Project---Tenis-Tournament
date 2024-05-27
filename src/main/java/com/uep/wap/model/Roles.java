@@ -48,6 +48,12 @@ public class Roles {
     public void setPrivileges(String privileges) {
         this.privileges = privileges;
     }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+
 }
 
 

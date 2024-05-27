@@ -2,7 +2,9 @@ package com.uep.wap.service;
 
 
 import com.uep.wap.dto.UserDTO;
+import com.uep.wap.model.Roles;
 import com.uep.wap.model.User;
+import com.uep.wap.repository.RolesRepository;
 import com.uep.wap.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private RolesRepository rolesRepository;
 
     public void addUser(UserDTO userDTO){
         User user = new User();
@@ -22,6 +26,10 @@ public class UserService {
         user.setGender(userDTO.getGender());
         user.setAge(userDTO.getAge());
         user.setEmail(userDTO.getEmail());
+
+        Roles roles = rolesRepository.findByName(userDTO.getRoleName());
+        user.setRole(roles);
+
         userRepository.save(user);
         System.out.println("User added!");
 

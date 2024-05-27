@@ -2,7 +2,9 @@ package com.uep.wap.service;
 
 import com.uep.wap.dto.DrawDTO;
 import com.uep.wap.model.Draw;
+import com.uep.wap.model.Tournament;
 import com.uep.wap.repository.DrawRepository;
+import com.uep.wap.repository.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +15,18 @@ public class DrawService {
 
     @Autowired
     private DrawRepository drawRepository;
+    @Autowired
+    private TournamentRepository tournamentRepository;
 
     public void addDraw(DrawDTO drawDTO){
         Draw draw = new Draw();
         draw.setRound(drawDTO.getRound());
         draw.setMatches(drawDTO.getMatches());
+
+
+        Tournament tournament = tournamentRepository.findByStartingDate(drawDTO.getTournamentStartingDate());
+        draw.setTournament(tournament);
+
         drawRepository.save(draw);
         System.out.println("Draw added!");
     }

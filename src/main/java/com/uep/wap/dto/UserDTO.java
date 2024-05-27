@@ -7,6 +7,11 @@ public class UserDTO {
     private String gender;
     private int age;
     private String email;
+    private String roleName;
+
+    public String getRoleName() {
+        return roleName;
+    }
 
     public String getFirst_name() {
         return first_name;

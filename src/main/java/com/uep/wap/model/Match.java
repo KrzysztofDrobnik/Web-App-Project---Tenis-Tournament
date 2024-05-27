@@ -2,6 +2,7 @@ package com.uep.wap.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name="Matches")
@@ -99,4 +100,17 @@ public class Match {
     public void setWinner(String winner) {
         this.winner = winner;
     }
+
+    public void setCourts(List<Court> courts) {
+        this.courts = courts;
+    }
+
+    public void setReferees(List<Referee> referees) {
+        this.referees = referees;
+    }
+
+
+
+
+
 }

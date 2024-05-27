@@ -44,4 +44,10 @@ public class Referee {
     public void setLastName(String last_name) {
         this.lastName = last_name;
     }
+
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
+
+
 }
