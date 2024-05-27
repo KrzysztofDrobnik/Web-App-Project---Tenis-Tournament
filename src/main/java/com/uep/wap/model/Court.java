@@ -9,7 +9,7 @@ public class Court {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "court_id")
-    private int court_id;
+    private int courtID;
     @Column(name = "name")
     private String name;
     @Column(name = "surface")
@@ -19,12 +19,12 @@ public class Court {
     private List<Match> matches;
 
 
-    public int getCourt_id() {
-        return court_id;
+    public int getCourtID() {
+        return courtID;
     }
 
-    public void setCourt_id(int court_id) {
-        this.court_id = court_id;
+    public void setCourtID(int court_id) {
+        this.courtID = court_id;
     }
 
     public Court(){

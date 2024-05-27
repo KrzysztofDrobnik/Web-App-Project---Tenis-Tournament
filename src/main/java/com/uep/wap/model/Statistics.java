@@ -8,15 +8,15 @@ public class Statistics {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "statistics_id")
-    private int statistics_id;
+    private int statisticsID;
     @Column(name = "aces")
     private int aces;
     @Column(name = "first_Serve")
-    private int first_Serve;
+    private int firstServe;
     @Column(name = "second_Serve")
-    private int second_Serve;
+    private int secondServe;
     @Column(name = "double_Faults")
-    private int double_Faults;
+    private int doubleFaults;
     @Column(name = "winners")
     private int winners;
 
@@ -25,12 +25,12 @@ public class Statistics {
     private Match match;
 
 
-    public int getStatistics_id() {
-        return statistics_id;
+    public int getStatisticsID() {
+        return statisticsID;
     }
 
-    public void setStatistics_id(int statistics_id) {
-        this.statistics_id = statistics_id;
+    public void setStatisticsID(int statistics_id) {
+        this.statisticsID = statistics_id;
     }
 
     public Statistics(){
@@ -44,28 +44,28 @@ public class Statistics {
         this.aces = aces;
     }
 
-    public int getFirst_Serve() {
-        return first_Serve;
+    public int getFirstServe() {
+        return firstServe;
     }
 
-    public void setFirst_Serve(int first_Serve) {
-        this.first_Serve = first_Serve;
+    public void setFirstServe(int first_Serve) {
+        this.firstServe = first_Serve;
     }
 
-    public int getSecond_Serve() {
-        return second_Serve;
+    public int getSecondServe() {
+        return secondServe;
     }
 
-    public void setSecond_Serve(int second_Serve) {
-        this.second_Serve = second_Serve;
+    public void setSecondServe(int second_Serve) {
+        this.secondServe = second_Serve;
     }
 
-    public int getDouble_Faults() {
-        return double_Faults;
+    public int getDoubleFaults() {
+        return doubleFaults;
     }
 
-    public void setDouble_Faults(int double_Faults) {
-        this.double_Faults = double_Faults;
+    public void setDoubleFaults(int double_Faults) {
+        this.doubleFaults = double_Faults;
     }
 
     public int getWinners() {

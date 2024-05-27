@@ -35,7 +35,7 @@ public class PlayerController {
         return playerService.findPlayerById(player_id);
     }
 
-    @DeleteMapping(path = "/roles/{id}")
+    @DeleteMapping(path = "/roles/{player_id}")
     public String deletePlayerById(@PathVariable int player_id){
         playerService.deletePlayerById(player_id);
         return "Player deleted!";

@@ -32,22 +32,22 @@ public class TournamentController {
 
     }
 
-    @GetMapping(path = "/tournaments{tournament_id}")
+    @GetMapping(path = "/tournaments/{tournament_id}")
     public Optional<Tournament> getTournamentById(@PathVariable int tournament_id){
         return tournamentService.getTournamentById(tournament_id);
     }
 
-    @GetMapping(path = "/tournaments{starting_date}")
+    @GetMapping(path = "/tournaments/{tournament_starting_date}")
     public Tournament findTournamentByStartingDate(@PathVariable String tournament_starting_date){
         return tournamentService.findTournamentByStartingDate(tournament_starting_date);
     }
 
-    @GetMapping(path = "/tournaments{ending_date}")
+    @GetMapping(path = "/tournaments/{tournament_ending_date}")
     public Tournament findTournamentByEndingDate(@PathVariable String tournament_ending_date){
         return tournamentService.findTournamentByEndingDate(tournament_ending_date);
     }
 
-    @DeleteMapping(path = "/tournaments{id}")
+    @DeleteMapping(path = "/tournaments{tournament_id}")
     public void deleteTournamentById(@PathVariable int tournament_id){
         tournamentService.deleteTournamentById(tournament_id);
     }

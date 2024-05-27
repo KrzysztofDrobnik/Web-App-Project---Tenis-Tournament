@@ -30,24 +30,24 @@ public class RefereeController {
         return "Referee added!";
     }
 
-    @GetMapping(path = "/referees{referee_id}")
+    @GetMapping(path = "/referees/{referee_id}")
     public Optional<Referee> findRefereeById(@PathVariable int referee_id){
         return refereeService.getRefereeById(referee_id);
     }
 
-    @GetMapping(path = "/referees{first_name}")
+    @GetMapping(path = "/referees/{first_name}")
     public Referee findRefereeByFirstName(@PathVariable String first_name){
         return refereeService.findRefereeByFirstName(first_name);
     }
 
 
-    @GetMapping(path = "/referees{last_name}")
+    @GetMapping(path = "/referees/{last_name}")
     public Referee findRefereeByLastName(@PathVariable String last_name){
         return refereeService.findRefereeByLastName(last_name);
     }
 
 
-    @DeleteMapping(path = "/referees{id}")
+    @DeleteMapping(path = "/referees/{referee_id}")
     public String deleteRefereeById(@PathVariable int referee_id){
         refereeService.deleteRefereeById(referee_id);
         return "Referee deleted!";

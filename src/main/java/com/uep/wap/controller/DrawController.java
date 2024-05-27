@@ -29,12 +29,12 @@ public class DrawController {
         return drawService.getAllDraws();
     }
 
-    @GetMapping(path = "/draws{draw_id}")
+    @GetMapping(path = "/draws/{draw_id}")
     public Optional<Draw> findDrawById(@PathVariable int draw_id){
         return drawService.findDrawById(draw_id);
     }
 
-    @DeleteMapping(path = "/draws{id}")
+    @DeleteMapping(path = "/draws/{draw_id}")
     public String deleteDrawById(@PathVariable int draw_id){
         drawService.deleteDrawById(draw_id);
         return "Draw deleted!";

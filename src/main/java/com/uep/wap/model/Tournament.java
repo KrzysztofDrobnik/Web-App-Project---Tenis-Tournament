@@ -9,13 +9,13 @@ public class Tournament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tournament_id")
-    private int tournament_id;
+    private int tournamentID;
     @Column(name = "starting_date")
-    private String starting_date;
+    private String startingDate;
     @Column(name = "ending_date")
-    private String ending_date;
+    private String endingDate;
     @Column(name = "participants_number")
-    private int participants_number;
+    private int participantsNumber;
     @Column(name = "type")
     private String type;
     @Column(name = "category")
@@ -41,38 +41,38 @@ public class Tournament {
     private PricePool pricePool_id;
 
 
-    public int getTournament_id() {
-        return tournament_id;
+    public int getTournamentID() {
+        return tournamentID;
     }
 
-    public void setTournament_id(int tournament_id) {
-        this.tournament_id = tournament_id;
+    public void setTournamentID(int tournament_id) {
+        this.tournamentID = tournament_id;
     }
     public Tournament(){
 
     }
-    public String getStarting_date() {
-        return starting_date;
+    public String getStartingDate() {
+        return startingDate;
     }
 
-    public void setStarting_date(String starting_date) {
-        this.starting_date = starting_date;
+    public void setStartingDate(String starting_date) {
+        this.startingDate = starting_date;
     }
 
-    public String getEnding_date() {
-        return ending_date;
+    public String getEndingDate() {
+        return endingDate;
     }
 
-    public void setEnding_date(String ending_date) {
-        this.ending_date = ending_date;
+    public void setEndingDate(String ending_date) {
+        this.endingDate = ending_date;
     }
 
-    public int getParticipants_number() {
-        return participants_number;
+    public int getParticipantsNumber() {
+        return participantsNumber;
     }
 
-    public void setParticipants_number(int participants_number) {
-        this.participants_number = participants_number;
+    public void setParticipantsNumber(int participants_number) {
+        this.participantsNumber = participants_number;
     }
 
     public String getType() {

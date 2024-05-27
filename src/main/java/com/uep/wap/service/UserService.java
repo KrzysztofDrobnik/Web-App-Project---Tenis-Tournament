@@ -17,8 +17,8 @@ public class UserService {
 
     public void addUser(UserDTO userDTO){
         User user = new User();
-        user.setFirst_name(userDTO.getFirst_name());
-        user.setLast_name(userDTO.getLast_name());
+        user.setFirstName(userDTO.getFirst_name());
+        user.setLastName(userDTO.getLast_name());
         user.setGender(userDTO.getGender());
         user.setAge(userDTO.getAge());
         user.setEmail(userDTO.getEmail());

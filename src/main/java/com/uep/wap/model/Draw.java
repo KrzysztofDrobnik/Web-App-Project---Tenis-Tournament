@@ -1,7 +1,6 @@
 package com.uep.wap.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="Draw")
@@ -9,7 +8,7 @@ public class Draw {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "draw_id")
-    private int draw_id;
+    private int drawID;
     @Column(name = "round")
     private int round;
     @Column(name = "matches")
@@ -21,12 +20,12 @@ public class Draw {
 
 
 
-    public int getDraw_id() {
-        return draw_id;
+    public int getDrawID() {
+        return drawID;
     }
 
-    public void setDraw_id(int draw_id) {
-        this.draw_id = draw_id;
+    public void setDrawID(int draw_id) {
+        this.drawID = draw_id;
     }
 
     public Draw(){

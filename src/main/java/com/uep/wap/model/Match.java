@@ -4,16 +4,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Match")
+@Table(name="Matches")
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "match_id")
-    private int match_id;
+    private int matchID;
     @Column(name = "date")
     private String date;
     @Column(name = "additional_info")
-    private String additional_info;
+    private String additionalInfo;
     @Column(name = "player1")
     private String player1;
     @Column(name = "player2")
@@ -42,12 +42,12 @@ public class Match {
     @JoinColumn(name = "tournament_id")
     private Tournament tournament;
 
-    public int getMatch_id() {
-        return match_id;
+    public int getMatchID() {
+        return matchID;
     }
 
-    public void setMatch_id(int match_id) {
-        this.match_id = match_id;
+    public void setMatchID(int match_id) {
+        this.matchID = match_id;
     }
     public Match(){
 
@@ -60,12 +60,12 @@ public class Match {
         this.date = date;
     }
 
-    public String getAdditional_info() {
-        return additional_info;
+    public String getAdditionalInfo() {
+        return additionalInfo;
     }
 
-    public void setAdditional_info(String additional_info) {
-        this.additional_info = additional_info;
+    public void setAdditionalInfo(String additional_info) {
+        this.additionalInfo = additional_info;
     }
 
     public String getPlayer1() {

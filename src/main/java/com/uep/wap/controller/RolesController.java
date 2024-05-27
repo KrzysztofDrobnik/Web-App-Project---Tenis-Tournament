@@ -32,19 +32,19 @@ public class RolesController {
     }
 
 
-    @GetMapping(path = "/roles{roles_id}")
+    @GetMapping(path = "/roles/{roles_id}")
     public Optional<Roles> findRolesById(@PathVariable int roles_id){
         return rolesService.findRolesById(roles_id);
     }
 
-    @GetMapping(path = "/roles{roles_name}")
+    @GetMapping(path = "/roles/{roles_name}")
     public Roles findRolesByName(@PathVariable String roles_name){
         return rolesService.findRolesByName(roles_name);
     }
 
 
 
-    @DeleteMapping(path = "/roles{id}")
+    @DeleteMapping(path = "/roles/{roles_id}")
     public String deleteRolesById(@PathVariable int roles_id){
         rolesService.deleteRolesById(roles_id);
         return "Role deleted!";

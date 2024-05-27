@@ -1,7 +1,5 @@
 package com.uep.wap.model;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,7 +9,7 @@ public class Organizer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "organizer_id")
-    private int organizer_id;
+    private int organizerID;
     @Column(name = "name")
     private String name;
     @Column(name = "description")
@@ -21,12 +19,12 @@ public class Organizer {
     private List<Tournament> tournaments;
 
 
-    public int getOrganizer_id() {
-        return organizer_id;
+    public int getOrganizerID() {
+        return organizerID;
     }
 
-    public void setOrganizer_id(int organizer_id) {
-        this.organizer_id = organizer_id;
+    public void setOrganizerID(int organizer_id) {
+        this.organizerID = organizer_id;
     }
 
     public Organizer(){

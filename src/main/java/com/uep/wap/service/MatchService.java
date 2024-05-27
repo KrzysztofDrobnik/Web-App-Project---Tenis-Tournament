@@ -17,7 +17,7 @@ public class MatchService {
     public void addMatch(MatchDTO matchDTO){
         Match match = new Match();
         match.setDate(matchDTO.getDate());
-        match.setAdditional_info(matchDTO.getAdditional_info());
+        match.setAdditionalInfo(matchDTO.getAdditional_info());
         match.setPlayer1(matchDTO.getPlayer_1());
         match.setPlayer2(matchDTO.getPlayer_2());
         match.setScore(matchDTO.getScore());

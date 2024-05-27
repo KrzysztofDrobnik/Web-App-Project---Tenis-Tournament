@@ -9,7 +9,7 @@ public class PricePool {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PricePool_id")
-    private int PricePool_id;
+    private int PricePoolID;
     @Column(name = "totalAmount")
     private int totalAmount;
     @Column(name = "firstPrice")
@@ -20,12 +20,12 @@ public class PricePool {
     @OneToMany(mappedBy = "pricePool_id", cascade = CascadeType.ALL)
     private List<Tournament> tournaments;
 
-    public int getPricePool_id() {
-        return PricePool_id;
+    public int getPricePoolID() {
+        return PricePoolID;
     }
 
-    public void setPricePool_id(int pricePool_id) {
-        PricePool_id = pricePool_id;
+    public void setPricePoolID(int pricePoolID) {
+        PricePoolID = pricePoolID;
     }
 
     public PricePool(){

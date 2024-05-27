@@ -17,8 +17,8 @@ public class RefereeService {
 
     public void addReferee(RefereeDTO refereeDTO){
         Referee referee = new Referee();
-        referee.setFirst_name(refereeDTO.getFirst_name());
-        referee.setLast_name(refereeDTO.getLast_name());
+        referee.setFirstName(refereeDTO.getFirst_name());
+        referee.setLastName(refereeDTO.getLast_name());
         refereeRepository.save(referee);
         System.out.println("Referee added!");
 
@@ -37,7 +37,7 @@ public class RefereeService {
     }
 
     public Referee findRefereeByLastName(String last_name){
-        return refereeRepository.findByFirstName(last_name);
+        return refereeRepository.findByLastName(last_name);
     }
 
     public void deleteRefereeById(int referee_id){

@@ -17,9 +17,9 @@ public class TournamentService {
 
     public void addTournament(TournamentDTO tournamentDTO){
         Tournament tournament = new Tournament();
-        tournament.setStarting_date(tournamentDTO.getStarting_date());
-        tournament.setEnding_date(tournamentDTO.getEnding_date());
-        tournament.setParticipants_number(tournamentDTO.getParticipants_number());
+        tournament.setStartingDate(tournamentDTO.getStarting_date());
+        tournament.setEndingDate(tournamentDTO.getEnding_date());
+        tournament.setParticipantsNumber(tournamentDTO.getParticipants_number());
         tournament.setType(tournamentDTO.getType());
         tournament.setCategory(tournamentDTO.getCategory());
         tournament.setPlace(tournamentDTO.getPlace());

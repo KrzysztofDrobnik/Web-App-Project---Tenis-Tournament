@@ -28,23 +28,23 @@ public class CourtController {
         return "Court added!";
     }
 
-    @GetMapping(path = "/courts{court_id}")
+    @GetMapping(path = "/courts/{court_id}")
     public Optional<Court> findCourtById(@PathVariable int court_id){
         return courtService.findCourtById(court_id);
 
     }
 
-    @GetMapping(path = "/courts{court_name}")
+    @GetMapping(path = "/courts/{court_name}")
     public Court findCourtByName(@PathVariable String court_name){
         return courtService.findCourtByName(court_name);
     }
 
-    @GetMapping(path = "/courts{court_surface}")
+    @GetMapping(path = "/courts/{court_surface}")
     public Court findCourtBySurface(@PathVariable String court_surface){
         return courtService.findCourtBySurface(court_surface);
     }
 
-    @DeleteMapping(path = "/courts{id}")
+    @DeleteMapping(path = "/courts/{court_id}")
     public String deleteCourtById(@PathVariable int court_id){
         courtService.deleteCourtById(court_id);
         return "Court deleted!";

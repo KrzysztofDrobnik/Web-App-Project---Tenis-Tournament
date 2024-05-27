@@ -9,7 +9,7 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="player_id")
-    private int player_id;
+    private int playerID;
     @Column(name="numberOfGames")
     private int numberOfGames;
     @Column(name = "TournamentsWon")
@@ -23,12 +23,12 @@ public class Player {
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     private User user;
 
-    public int getPlayer_id() {
-        return player_id;
+    public int getPlayerID() {
+        return playerID;
     }
 
-    public void setPlayer_id(int player_id) {
-        this.player_id = player_id;
+    public void setPlayerID(int player_id) {
+        this.playerID = player_id;
     }
     public Player(){
 

@@ -30,27 +30,27 @@ public class MatchController {
         return matchService.getAllMatches();
     }
 
-    @GetMapping(path = "/matches{match_id}")
+    @GetMapping(path = "/matches/{match_id}")
     public Optional<Match> findMatchById(@PathVariable int match_id){
         return matchService.findMatchById(match_id);
     }
 
-    @GetMapping(path = "/matches{match_date}")
+    @GetMapping(path = "/matches/{match_date}")
     public Match findMatchByDate(@PathVariable String match_date){
         return matchService.findMatchByDate(match_date);
     }
 
-    @GetMapping(path = "/matches{match_score}")
+    @GetMapping(path = "/matches/{match_score}")
     public Match findMatchByScore(@PathVariable String match_score){
         return matchService.findMatchByScore(match_score);
     }
 
-    @GetMapping(path = "/matches{match_winner}")
+    @GetMapping(path = "/matches/{match_winner}")
     public Match findMatchByWinner(@PathVariable String match_winner){
         return matchService.findMatchByWinner(match_winner);
     }
 
-    @DeleteMapping(path = "/matches{id}")
+    @DeleteMapping(path = "/matches{match_id}")
     public void deleteMatchById(@PathVariable int match_id){
         matchService.deleteMatchByID(match_id);
     }

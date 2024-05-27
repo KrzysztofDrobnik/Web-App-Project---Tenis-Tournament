@@ -31,20 +31,20 @@ public class OrganizerController {
 
     }
 
-    @GetMapping(path = "/organizers{organizer_id}")
+    @GetMapping(path = "/organizers/{organizer_id}")
     public Optional<Organizer> findOrganizerById(@PathVariable int organizer_id){
         return organizerService.findOrganizerById(organizer_id);
 
 
     }
 
-    @GetMapping(path = "/organizers{organizer_name}")
+    @GetMapping(path = "/organizers/{organizer_name}")
     public Organizer findOrganizerByName(@PathVariable String organizer_name){
         return organizerService.findOrganizerByName(organizer_name);
 
     }
 
-    @DeleteMapping(path = "/organizers{id}")
+    @DeleteMapping(path = "/organizers/{organizer_id}")
     public String deleteOrganizerById(@PathVariable int organizer_id){
         organizerService.deleteOrganizerById(organizer_id);
         return "Organizer deleted!";
