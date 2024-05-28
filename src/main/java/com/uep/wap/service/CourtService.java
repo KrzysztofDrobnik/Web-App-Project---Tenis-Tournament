@@ -19,6 +19,8 @@ public class CourtService {
     
     @Autowired
     private CourtRepository courtRepository;
+    @Autowired
+    private MatchRepository matchRepository;
 
 
     public void addCourt(CourtDTO courtDTO){
@@ -26,6 +28,13 @@ public class CourtService {
         court.setName(courtDTO.getName());
         court.setSurface(courtDTO.getSurface());
         courtRepository.save(court);
+
+        List<Match> matches = new ArrayList<>();
+        Match match = matchRepository.findByDate(courtDTO.getMatchDate());
+        matches.add(match);
+        court.setMatches(matches);
+
+        
         System.out.println("Court added!");
 
 

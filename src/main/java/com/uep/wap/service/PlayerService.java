@@ -1,11 +1,15 @@
 package com.uep.wap.service;
 
 import com.uep.wap.dto.PlayerDTO;
+import com.uep.wap.model.Match;
 import com.uep.wap.model.Player;
+import com.uep.wap.repository.MatchRepository;
 import com.uep.wap.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,12 +17,20 @@ public class PlayerService {
 
     @Autowired
     private PlayerRepository playerRepository;
+    @Autowired
+    private MatchRepository matchRepository;
 
     public void addPlayer(PlayerDTO playerDTO){
         Player player = new Player();
         player.setNumberOfGames(playerDTO.getNumberOfGames());
         player.setTournamentsWon(playerDTO.getTournamentsWon());
         player.setSuccesses(playerDTO.getSuccesses());
+
+        List<Match> matches = new ArrayList<>();
+        Match match = matchRepository.findByDate(playerDTO.getMatchDate());
+        matches.add(match);
+        player.setMatches(matches);
+
         playerRepository.save(player);
         System.out.println("Player added!");
 

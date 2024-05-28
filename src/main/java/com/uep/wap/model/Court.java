@@ -46,5 +46,8 @@ public class Court {
         this.surface = surface;
     }
 
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
 
 }

@@ -5,6 +5,11 @@ public class PlayerDTO {
     private int numberOfGames;
     private int tournamentsWon;
     private String successes;
+    private String matchDate;
+
+    public String getMatchDate() {
+        return matchDate;
+    }
 
     public int getNumberOfGames() {
         return numberOfGames;

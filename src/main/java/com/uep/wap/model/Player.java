@@ -57,10 +57,13 @@ public class Player {
         Successes = successes;
     }
 
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
 
 
 
 
-   // public Player(int numberOfGames, int tournamentsWon, String successes){
+    // public Player(int numberOfGames, int tournamentsWon, String successes){
     // }
 }

@@ -4,7 +4,11 @@ public class CourtDTO {
 
     String name;
     String surface;
+    String matchDate;
 
+    public String getMatchDate() {
+        return matchDate;
+    }
 
     public String getName() {
         return name;
