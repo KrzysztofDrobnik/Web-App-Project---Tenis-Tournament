@@ -10,7 +10,12 @@ public class MatchDTO {
     String winner;
     String courtName;
     String refereeLastName;
+    String tournamentStartingDate;
 
+
+    public String getTournamentStartingDate() {
+        return tournamentStartingDate;
+    }
 
     public String getCourtName() {
         return courtName;

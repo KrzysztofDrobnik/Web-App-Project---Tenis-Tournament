@@ -109,7 +109,13 @@ public class Match {
         this.referees = referees;
     }
 
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
+    }
 
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
 
 
 }

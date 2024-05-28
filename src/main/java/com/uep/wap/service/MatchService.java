@@ -21,6 +21,8 @@ public class MatchService {
     private TournamentRepository tournamentRepository;
     @Autowired
     private RefereeRepository refereeRepository;
+    @Autowired
+    private PlayerRepository playerRepository;
 
 
     public void addMatch(MatchDTO matchDTO){
@@ -43,6 +45,14 @@ public class MatchService {
         Referee referee = refereeRepository.findByLastName(matchDTO.getRefereeLastName());
         referees.add(referee);
         match.setReferees(referees);
+
+        Tournament tournament = tournamentRepository.findByStartingDate(matchDTO.getTournamentStartingDate());
+        match.setTournament(tournament);
+
+
+
+
+
 
         matchRepository.save(match);
         System.out.println("Match added!");

@@ -5,6 +5,7 @@ import com.uep.wap.model.Match;
 import com.uep.wap.model.Player;
 import com.uep.wap.repository.MatchRepository;
 import com.uep.wap.repository.PlayerRepository;
+import com.uep.wap.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,8 @@ public class PlayerService {
     private PlayerRepository playerRepository;
     @Autowired
     private MatchRepository matchRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public void addPlayer(PlayerDTO playerDTO){
         Player player = new Player();
@@ -30,6 +33,9 @@ public class PlayerService {
         Match match = matchRepository.findByDate(playerDTO.getMatchDate());
         matches.add(match);
         player.setMatches(matches);
+
+
+
 
         playerRepository.save(player);
         System.out.println("Player added!");

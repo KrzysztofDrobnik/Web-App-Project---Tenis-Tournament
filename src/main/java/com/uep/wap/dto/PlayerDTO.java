@@ -7,6 +7,7 @@ public class PlayerDTO {
     private String successes;
     private String matchDate;
 
+
     public String getMatchDate() {
         return matchDate;
     }
