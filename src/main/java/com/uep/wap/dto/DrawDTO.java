@@ -2,9 +2,9 @@ package com.uep.wap.dto;
 
 public class DrawDTO {
 
-    int round;
-    String matches;
-    String tournamentStartingDate;
+    private int round;
+    private String matches;
+    private String tournamentStartingDate;
 
     public String getTournamentStartingDate() {
         return tournamentStartingDate;

@@ -2,9 +2,9 @@ package com.uep.wap.dto;
 
 public class OrganizerDTO {
 
-    String name;
-    String description;
-    String tournamentStartingDate;
+    private String name;
+    private String description;
+    private String tournamentStartingDate;
 
     public String getTournamentStartingDate() {
         return tournamentStartingDate;

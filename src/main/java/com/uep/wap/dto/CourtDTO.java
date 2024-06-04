@@ -2,9 +2,9 @@ package com.uep.wap.dto;
 
 public class CourtDTO {
 
-    String name;
-    String surface;
-    String matchDate;
+    private String name;
+    private String surface;
+    private String matchDate;
 
     public String getMatchDate() {
         return matchDate;

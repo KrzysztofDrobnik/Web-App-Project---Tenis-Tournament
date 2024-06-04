@@ -2,9 +2,9 @@ package com.uep.wap.dto;
 
 public class RefereeDTO {
 
-    String first_name;
-    String last_name;
-    String matchDate;
+    private String first_name;
+    private String last_name;
+    private String matchDate;
 
     public String getMatchDate() {
         return matchDate;

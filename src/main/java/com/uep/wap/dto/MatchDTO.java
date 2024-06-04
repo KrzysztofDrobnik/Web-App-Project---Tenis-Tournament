@@ -2,17 +2,17 @@ package com.uep.wap.dto;
 
 public class MatchDTO {
 
-    String date;
-    String additional_info;
-    String player_1;
-    String player_2;
-    String score;
-    String winner;
-    String courtName;
-    String refereeLastName;
-    String tournamentStartingDate;
-    int playerID;
-    int StatisticsID;
+    private String date;
+    private String additional_info;
+    private String player_1;
+    private String player_2;
+    private String score;
+    private String winner;
+    private String courtName;
+    private String refereeLastName;
+    private String tournamentStartingDate;
+    private int playerID;
+    private int StatisticsID;
 
     public int getStatisticsID() {
         return StatisticsID;

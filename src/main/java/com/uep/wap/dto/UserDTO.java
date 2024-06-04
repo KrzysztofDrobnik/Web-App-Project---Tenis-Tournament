@@ -7,8 +7,12 @@ public class UserDTO {
     private String gender;
     private int age;
     private String email;
+    //private String login
+    //private String password
     private String roleName;
     private int playerID;
+
+
 
     public int getPlayerID() {
         return playerID;

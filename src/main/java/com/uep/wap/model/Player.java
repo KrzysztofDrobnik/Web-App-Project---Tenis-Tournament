@@ -67,7 +67,4 @@ public class Player {
     // set User
 
 
-
-    // public Player(int numberOfGames, int tournamentsWon, String successes){
-    // }
 }
