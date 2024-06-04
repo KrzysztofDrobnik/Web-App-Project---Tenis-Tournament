@@ -115,6 +115,8 @@ public class Tournament {
         this.organizer = organizer;
     }
 
+
+
     // set Price pool
 
 

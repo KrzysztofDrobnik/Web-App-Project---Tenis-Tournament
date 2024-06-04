@@ -2,8 +2,10 @@ package com.uep.wap.service;
 
 
 import com.uep.wap.dto.UserDTO;
+import com.uep.wap.model.Player;
 import com.uep.wap.model.Roles;
 import com.uep.wap.model.User;
+import com.uep.wap.repository.PlayerRepository;
 import com.uep.wap.repository.RolesRepository;
 import com.uep.wap.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private RolesRepository rolesRepository;
+    @Autowired
+    private PlayerRepository playerRepository;
 
     public void addUser(UserDTO userDTO){
         User user = new User();
@@ -27,8 +31,15 @@ public class UserService {
         user.setAge(userDTO.getAge());
         user.setEmail(userDTO.getEmail());
 
-        Roles roles = rolesRepository.findByName(userDTO.getRoleName());
-        user.setRole(roles);
+        if(!userDTO.getRoleName().isEmpty()) {
+            Roles roles = rolesRepository.findByName(userDTO.getRoleName());
+            user.setRole(roles);
+        }
+
+        if(userDTO.getPlayerID() != 0) {
+            Player player = playerRepository.findById(userDTO.getPlayerID()).get();
+            user.setPlayer(player);
+        }
 
         userRepository.save(user);
         System.out.println("User added!");

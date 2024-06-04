@@ -27,9 +27,12 @@ public class OrganizerService {
         organizer.setDescription(organizerDTO.getDescription());
 
         List<Tournament> tournaments = new ArrayList<>();
-        Tournament tournament = tournamentRepository.findByStartingDate(organizerDTO.getTournamentStartingDate());
-        tournaments.add(tournament);
-        organizer.setTournaments(tournaments);
+        if (!organizerDTO.getTournamentStartingDate().isEmpty()) {
+
+            Tournament tournament = tournamentRepository.findByStartingDate(organizerDTO.getTournamentStartingDate());
+            tournaments.add(tournament);
+            organizer.setTournaments(tournaments);
+        }
 
         organizerRepository.save(organizer);
         System.out.println("Organizer added!");

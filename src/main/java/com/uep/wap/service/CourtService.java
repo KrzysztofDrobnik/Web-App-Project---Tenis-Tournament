@@ -30,9 +30,11 @@ public class CourtService {
         courtRepository.save(court);
 
         List<Match> matches = new ArrayList<>();
-        Match match = matchRepository.findByDate(courtDTO.getMatchDate());
-        matches.add(match);
-        court.setMatches(matches);
+        if(!courtDTO.getMatchDate().isEmpty()) {
+            Match match = matchRepository.findByDate(courtDTO.getMatchDate());
+            matches.add(match);
+            court.setMatches(matches);
+        }
 
         
         System.out.println("Court added!");
@@ -61,4 +63,6 @@ public class CourtService {
     public void deleteCourtById(int court_id){
         courtRepository.deleteById(court_id);
     }
+
+
 }

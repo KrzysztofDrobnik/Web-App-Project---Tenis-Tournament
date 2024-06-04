@@ -27,9 +27,11 @@ public class RefereeService {
         referee.setLastName(refereeDTO.getLast_name());
 
         List<Match> matches = new ArrayList<>();
-        Match match = matchRepository.findByDate(refereeDTO.getMatchDate());
-        matches.add(match);
-        referee.setMatches(matches);
+        if (!refereeDTO.getMatchDate().isEmpty()) {
+            Match match = matchRepository.findByDate(refereeDTO.getMatchDate());
+            matches.add(match);
+            referee.setMatches(matches);
+        }
 
         refereeRepository.save(referee);
         System.out.println("Referee added!");

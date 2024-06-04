@@ -23,6 +23,8 @@ public class MatchService {
     private RefereeRepository refereeRepository;
     @Autowired
     private PlayerRepository playerRepository;
+    @Autowired
+    private StatisticsRepository statisticsRepository;
 
 
     public void addMatch(MatchDTO matchDTO){
@@ -35,32 +37,40 @@ public class MatchService {
         match.setWinner(matchDTO.getWinner());
 
         List<Court> courts = new ArrayList<>();
-        Court court = courtRepository.findByName(matchDTO.getCourtName());
-        courts.add(court);
-        match.setCourts(courts);
-
-
+        if(!matchDTO.getCourtName().isEmpty()) {
+            Court court = courtRepository.findByName(matchDTO.getCourtName());
+            courts.add(court);
+            match.setCourts(courts);
+        }
 
         List<Referee> referees = new ArrayList<>();
-        Referee referee = refereeRepository.findByLastName(matchDTO.getRefereeLastName());
-        referees.add(referee);
-        match.setReferees(referees);
+        if (!matchDTO.getRefereeLastName().isEmpty()) {
+            Referee referee = refereeRepository.findByLastName(matchDTO.getRefereeLastName());
+            referees.add(referee);
+            match.setReferees(referees);
+        }
 
-        Tournament tournament = tournamentRepository.findByStartingDate(matchDTO.getTournamentStartingDate());
-        match.setTournament(tournament);
+        if(!matchDTO.getTournamentStartingDate().isEmpty()) {
+            Tournament tournament = tournamentRepository.findByStartingDate(matchDTO.getTournamentStartingDate());
+            match.setTournament(tournament);
+        }
 
+        List<Player> players = new ArrayList<>();
+        if (matchDTO.getPlayerID() != 0) {
+            Player player = playerRepository.findById(matchDTO.getPlayerID()).get();
+            players.add(player);
+            match.setPlayers(players);
+        }
 
+        if(matchDTO.getStatisticsID() != 0) {
 
-
+            Statistics statistics = statisticsRepository.findById(matchDTO.getStatisticsID()).get();
+            match.setStatistics(statistics);
+        }
 
 
         matchRepository.save(match);
         System.out.println("Match added!");
-
-
-
-
-
 
 
 

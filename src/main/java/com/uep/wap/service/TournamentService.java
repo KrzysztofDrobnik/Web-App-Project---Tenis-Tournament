@@ -2,9 +2,11 @@ package com.uep.wap.service;
 
 
 import com.uep.wap.dto.TournamentDTO;
+import com.uep.wap.model.Draw;
 import com.uep.wap.model.Match;
 import com.uep.wap.model.Organizer;
 import com.uep.wap.model.Tournament;
+import com.uep.wap.repository.DrawRepository;
 import com.uep.wap.repository.MatchRepository;
 import com.uep.wap.repository.OrganizerRepository;
 import com.uep.wap.repository.TournamentRepository;
@@ -24,6 +26,8 @@ public class TournamentService {
     private MatchRepository matchRepository;
     @Autowired
     private OrganizerRepository organizerRepository;
+    @Autowired
+    private DrawRepository drawRepository;
 
     public void addTournament(TournamentDTO tournamentDTO){
         Tournament tournament = new Tournament();
@@ -35,12 +39,21 @@ public class TournamentService {
         tournament.setPlace(tournamentDTO.getPlace());
 
         List<Match> matches = new ArrayList<>();
-        Match match = matchRepository.findByDate(tournamentDTO.getMatchDate());
-        matches.add(match);
-        tournament.setMatches(matches);
+        if(!tournamentDTO.getMatchDate().isEmpty()) {
+            Match match = matchRepository.findByDate(tournamentDTO.getMatchDate());
+            matches.add(match);
+            tournament.setMatches(matches);
+        }
 
-        Organizer organizer = organizerRepository.findByName(tournamentDTO.getOrganizerName());
-        tournament.setOrganizer(organizer);
+        if(!tournamentDTO.getOrganizerName().isEmpty()) {
+            Organizer organizer = organizerRepository.findByName(tournamentDTO.getOrganizerName());
+            tournament.setOrganizer(organizer);
+        }
+
+        if(tournamentDTO.getDrawID() != 0) {
+            Draw draw = drawRepository.findById(tournamentDTO.getDrawID()).get();
+            tournament.setDraw(draw);
+        }
 
 
 

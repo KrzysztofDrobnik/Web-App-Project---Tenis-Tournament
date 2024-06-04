@@ -8,6 +8,11 @@ public class UserDTO {
     private int age;
     private String email;
     private String roleName;
+    private int playerID;
+
+    public int getPlayerID() {
+        return playerID;
+    }
 
     public String getRoleName() {
         return roleName;

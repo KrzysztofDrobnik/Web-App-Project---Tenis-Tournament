@@ -23,9 +23,10 @@ public class DrawService {
         draw.setRound(drawDTO.getRound());
         draw.setMatches(drawDTO.getMatches());
 
-
-        Tournament tournament = tournamentRepository.findByStartingDate(drawDTO.getTournamentStartingDate());
-        draw.setTournament(tournament);
+        if(!drawDTO.getTournamentStartingDate().isEmpty()) {
+            Tournament tournament = tournamentRepository.findByStartingDate(drawDTO.getTournamentStartingDate());
+            draw.setTournament(tournament);
+        }
 
         drawRepository.save(draw);
         System.out.println("Draw added!");

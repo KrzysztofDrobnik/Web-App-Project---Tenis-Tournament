@@ -26,9 +26,11 @@ public class RolesService {
         roles.setPrivileges(rolesDTO.getPrivileges());
 
         List<User> users = new ArrayList<>();
-        User user = userRepository.findByLastName(rolesDTO.getUserLastName());
-        users.add(user);
-        roles.setUsers(users);
+        if(!rolesDTO.getUserLastName().isEmpty()) {
+            User user = userRepository.findByLastName(rolesDTO.getUserLastName());
+            users.add(user);
+            roles.setUsers(users);
+        }
 
 
         rolesRepository.save(roles);

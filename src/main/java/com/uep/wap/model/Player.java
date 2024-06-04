@@ -61,6 +61,9 @@ public class Player {
         this.matches = matches;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
     // set User
 
 

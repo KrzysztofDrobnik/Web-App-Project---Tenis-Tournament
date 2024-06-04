@@ -10,6 +10,11 @@ public class TournamentDTO {
     private String place;
     private String matchDate;
     private String organizerName;
+    private int drawID;
+
+    public int getDrawID() {
+        return drawID;
+    }
 
     public String getOrganizerName() {
         return organizerName;

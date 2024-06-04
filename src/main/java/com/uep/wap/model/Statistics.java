@@ -76,9 +76,8 @@ public class Statistics {
         this.winners = winners;
     }
 
-    // set Match
-
-
-
+    public void setMatch(Match match) {
+        this.match = match;
+    }
 
 }

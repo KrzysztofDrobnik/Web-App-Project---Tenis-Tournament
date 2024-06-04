@@ -11,7 +11,16 @@ public class MatchDTO {
     String courtName;
     String refereeLastName;
     String tournamentStartingDate;
+    int playerID;
+    int StatisticsID;
 
+    public int getStatisticsID() {
+        return StatisticsID;
+    }
+
+    public int getPlayerID() {
+        return playerID;
+    }
 
     public String getTournamentStartingDate() {
         return tournamentStartingDate;

@@ -3,6 +3,7 @@ package com.uep.wap.service;
 import com.uep.wap.dto.PlayerDTO;
 import com.uep.wap.model.Match;
 import com.uep.wap.model.Player;
+import com.uep.wap.model.User;
 import com.uep.wap.repository.MatchRepository;
 import com.uep.wap.repository.PlayerRepository;
 import com.uep.wap.repository.UserRepository;
@@ -30,9 +31,17 @@ public class PlayerService {
         player.setSuccesses(playerDTO.getSuccesses());
 
         List<Match> matches = new ArrayList<>();
-        Match match = matchRepository.findByDate(playerDTO.getMatchDate());
-        matches.add(match);
-        player.setMatches(matches);
+        if(!playerDTO.getMatchDate().isEmpty()) {
+            Match match = matchRepository.findByDate(playerDTO.getMatchDate());
+            matches.add(match);
+            player.setMatches(matches);
+        }
+
+        if(!playerDTO.getMatchDate().isEmpty()) {
+            User user = userRepository.findByLastName(playerDTO.getUserLastName());
+            player.setUser(user);
+        }
+
 
 
 

@@ -6,7 +6,11 @@ public class PlayerDTO {
     private int tournamentsWon;
     private String successes;
     private String matchDate;
+    private String userLastName;
 
+    public String getUserLastName() {
+        return userLastName;
+    }
 
     public String getMatchDate() {
         return matchDate;

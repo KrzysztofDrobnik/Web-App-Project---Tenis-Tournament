@@ -21,7 +21,7 @@ public class TournamentController {
 
     @GetMapping(path = "/tournaments")
     public Iterable<Tournament> getAllTournaments(){
-        return this.tournamentService.getAllTournaments();
+        return tournamentService.getAllTournaments();
     }
 
     @PostMapping(path = "/tournaments")

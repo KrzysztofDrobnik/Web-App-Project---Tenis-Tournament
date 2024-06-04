@@ -117,6 +117,10 @@ public class Match {
         this.players = players;
     }
 
+    public void setStatistics(Statistics statistics) {
+        this.statistics = statistics;
+    }
+
     // set Statistics
 
 
