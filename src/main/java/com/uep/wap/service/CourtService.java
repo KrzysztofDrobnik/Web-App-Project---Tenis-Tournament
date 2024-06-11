@@ -27,7 +27,7 @@ public class CourtService {
         Court court = new Court();
         court.setName(courtDTO.getName());
         court.setSurface(courtDTO.getSurface());
-        courtRepository.save(court);
+
 
         List<Match> matches = new ArrayList<>();
         if(!courtDTO.getMatchDate().isEmpty()) {
@@ -36,7 +36,7 @@ public class CourtService {
             court.setMatches(matches);
         }
 
-        
+        courtRepository.save(court);
         System.out.println("Court added!");
 
 

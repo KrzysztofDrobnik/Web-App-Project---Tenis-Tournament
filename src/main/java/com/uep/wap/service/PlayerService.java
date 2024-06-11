@@ -37,7 +37,7 @@ public class PlayerService {
             player.setMatches(matches);
         }
 
-        if(!playerDTO.getMatchDate().isEmpty()) {
+        if(!playerDTO.getUserLastName().isEmpty()) {
             User user = userRepository.findByLastName(playerDTO.getUserLastName());
             player.setUser(user);
         }
