@@ -55,9 +55,10 @@ public class TournamentController {
         return tournamentService.findTournamentByEndingDate(tournament_ending_date);
     }
 
-    @DeleteMapping(path = "/tournaments{tournament_id}")
-    public void deleteTournamentById(@PathVariable int tournament_id){
+    @DeleteMapping(path = "/tournaments/{tournament_id}")
+    public String deleteTournamentById(@PathVariable int tournament_id){
         tournamentService.deleteTournamentById(tournament_id);
+        return "Tournament deleted!";
     }
 
 

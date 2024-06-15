@@ -57,8 +57,10 @@ public class MatchController {
         return matchService.findMatchByWinner(match_winner);
     }
 
-    @DeleteMapping(path = "/matches{match_id}")
-    public void deleteMatchById(@PathVariable int match_id){
+    @DeleteMapping(path = "/matches/{match_id}")
+    public String deleteMatchById(@PathVariable int match_id){
+
         matchService.deleteMatchByID(match_id);
+        return "match deleted!";
     }
 }

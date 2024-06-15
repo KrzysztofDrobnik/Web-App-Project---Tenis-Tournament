@@ -49,8 +49,9 @@ public class StatisticsController {
         return statisticsService.findStatisticsByWinners(winners);
     }
 
-    @DeleteMapping(path = "/statistics{statisticsId}")
-    public void deleteStatisticsById(@PathVariable int statisticsId) {
+    @DeleteMapping(path = "/statistics/{statisticsId}")
+    public String deleteStatisticsById(@PathVariable int statisticsId) {
         statisticsService.deleteStatisticsById(statisticsId);
+        return "Statistics deleted!";
     }
 }
