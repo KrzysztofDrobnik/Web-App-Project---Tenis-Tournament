@@ -31,6 +31,12 @@ public class RolesController {
         return "Role added!";
     }
 
+    @PutMapping(path = "/roles/{roles_id}")
+    public String editRoles(@PathVariable int roles_id, @RequestBody RolesDTO rolesDTO){
+        rolesService.editRole(roles_id, rolesDTO);
+        return "Role edited!";
+    }
+
 
     @GetMapping(path = "/roles/{roles_id}")
     public Optional<Roles> findRolesById(@PathVariable int roles_id){

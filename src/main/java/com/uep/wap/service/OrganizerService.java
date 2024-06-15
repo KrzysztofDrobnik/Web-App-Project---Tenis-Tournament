@@ -38,6 +38,23 @@ public class OrganizerService {
         System.out.println("Organizer added!");
     }
 
+    public void editOrganizer(int organizer_id, OrganizerDTO organizerDTO){
+        Organizer organizer = organizerRepository.findById(organizer_id).get();
+        organizer.setName(organizerDTO.getName());
+        organizer.setDescription(organizerDTO.getDescription());
+
+        List<Tournament> tournaments = new ArrayList<>();
+        if (!organizerDTO.getTournamentStartingDate().isEmpty()) {
+
+            Tournament tournament = tournamentRepository.findByStartingDate(organizerDTO.getTournamentStartingDate());
+            tournaments.add(tournament);
+            organizer.setTournaments(tournaments);
+        }
+
+        organizerRepository.save(organizer);
+        System.out.println("Organizer edited!");
+    }
+
     public Iterable<Organizer> getAllOrganizers(){
         return organizerRepository.findAll();
     }

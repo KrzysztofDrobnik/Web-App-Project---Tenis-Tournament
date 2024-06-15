@@ -38,6 +38,23 @@ public class RefereeService {
 
     }
 
+    public void editReferee(int referee_id, RefereeDTO refereeDTO){
+        Referee referee = refereeRepository.findById(referee_id).get();
+        referee.setFirstName(refereeDTO.getFirst_name());
+        referee.setLastName(refereeDTO.getLast_name());
+
+        List<Match> matches = new ArrayList<>();
+        if (!refereeDTO.getMatchDate().isEmpty()) {
+            Match match = matchRepository.findByDate(refereeDTO.getMatchDate());
+            matches.add(match);
+            referee.setMatches(matches);
+        }
+
+        refereeRepository.save(referee);
+        System.out.println("Referee edited!");
+
+    }
+
     public Iterable<Referee> getAllReferees(){
         return refereeRepository.findAll();
     }

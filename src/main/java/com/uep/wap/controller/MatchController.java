@@ -25,6 +25,13 @@ public class MatchController {
 
     }
 
+    @PutMapping(path = "/matches/{match_id}")
+    public String editMatch(@PathVariable int match_id, @RequestBody MatchDTO matchDTO){
+        matchService.editMatch(match_id, matchDTO);
+        return "Match edited!";
+
+    }
+
     @GetMapping(path = "/matches")
     public Iterable<Match> getAllMatches(){
         return matchService.getAllMatches();

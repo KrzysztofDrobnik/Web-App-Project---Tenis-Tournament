@@ -30,6 +30,12 @@ public class RefereeController {
         return "Referee added!";
     }
 
+    @PutMapping(path = "/referees/{referee_id}")
+    public String editReferee(@PathVariable int referee_id, @RequestBody RefereeDTO refereeDTO){
+        refereeService.editReferee(referee_id, refereeDTO);
+        return "Referee edited!";
+    }
+
     @GetMapping(path = "/referees/{referee_id}")
     public Optional<Referee> findRefereeById(@PathVariable int referee_id){
         return refereeService.getRefereeById(referee_id);

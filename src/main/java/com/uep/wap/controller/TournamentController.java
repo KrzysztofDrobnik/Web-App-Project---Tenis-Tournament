@@ -32,6 +32,14 @@ public class TournamentController {
 
     }
 
+    @PutMapping(path = "/tournaments/{tournament_id}")
+    public String editTournament(@PathVariable int tournament_id, @RequestBody TournamentDTO tournamentDTO){
+
+        tournamentService.editTournament(tournament_id, tournamentDTO);
+        return "Tournament edited!";
+
+    }
+
     @GetMapping(path = "/tournaments/{tournament_id}")
     public Optional<Tournament> getTournamentById(@PathVariable int tournament_id){
         return tournamentService.getTournamentById(tournament_id);

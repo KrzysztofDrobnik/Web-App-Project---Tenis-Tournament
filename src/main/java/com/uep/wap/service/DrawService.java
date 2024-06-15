@@ -32,6 +32,20 @@ public class DrawService {
         System.out.println("Draw added!");
     }
 
+    public void editDraw(int draw_id, DrawDTO drawDTO){
+        Draw draw = drawRepository.findById(draw_id).get();
+        draw.setRound(drawDTO.getRound());
+        draw.setMatches(drawDTO.getMatches());
+
+        if(!drawDTO.getTournamentStartingDate().isEmpty()) {
+            Tournament tournament = tournamentRepository.findByStartingDate(drawDTO.getTournamentStartingDate());
+            draw.setTournament(tournament);
+        }
+
+        drawRepository.save(draw);
+        System.out.println("Draw edited!");
+    }
+
     public Iterable<Draw> getAllDraws(){
         return drawRepository.findAll();
     }

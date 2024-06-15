@@ -46,6 +46,29 @@ public class UserService {
 
     }
 
+    public void editUser(int user_id, UserDTO userDTO){
+        User user = userRepository.findById(user_id).get();
+        user.setFirstName(userDTO.getFirst_name());
+        user.setLastName(userDTO.getLast_name());
+        user.setGender(userDTO.getGender());
+        user.setAge(userDTO.getAge());
+        user.setEmail(userDTO.getEmail());
+
+        if(!userDTO.getRoleName().isEmpty()) {
+            Roles roles = rolesRepository.findByName(userDTO.getRoleName());
+            user.setRole(roles);
+        }
+
+        if(userDTO.getPlayerID() != 0) {
+            Player player = playerRepository.findById(userDTO.getPlayerID()).get();
+            user.setPlayer(player);
+        }
+
+        userRepository.save(user);
+        System.out.println("User edited!");
+
+    }
+
     public Iterable<User> getAllUsers(){
         return userRepository.findAll();
     }

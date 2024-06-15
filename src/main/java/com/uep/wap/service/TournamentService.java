@@ -63,6 +63,40 @@ public class TournamentService {
 
     }
 
+    public void editTournament(int tournament_id, TournamentDTO tournamentDTO){
+        Tournament tournament = tournamentRepository.findById(tournament_id).get();
+        tournament.setStartingDate(tournamentDTO.getStarting_date());
+        tournament.setEndingDate(tournamentDTO.getEnding_date());
+        tournament.setParticipantsNumber(tournamentDTO.getParticipants_number());
+        tournament.setType(tournamentDTO.getType());
+        tournament.setCategory(tournamentDTO.getCategory());
+        tournament.setPlace(tournamentDTO.getPlace());
+
+        List<Match> matches = new ArrayList<>();
+        if(!tournamentDTO.getMatchDate().isEmpty()) {
+            Match match = matchRepository.findByDate(tournamentDTO.getMatchDate());
+            matches.add(match);
+            tournament.setMatches(matches);
+        }
+
+        if(!tournamentDTO.getOrganizerName().isEmpty()) {
+            Organizer organizer = organizerRepository.findByName(tournamentDTO.getOrganizerName());
+            tournament.setOrganizer(organizer);
+        }
+
+        if(tournamentDTO.getDrawID() != 0) {
+            Draw draw = drawRepository.findById(tournamentDTO.getDrawID()).get();
+            tournament.setDraw(draw);
+        }
+
+
+
+        tournamentRepository.save(tournament);
+
+        System.out.println("Tournament edited!");
+
+    }
+
     public Iterable<Tournament> getAllTournaments(){
         return tournamentRepository.findAll();
     }

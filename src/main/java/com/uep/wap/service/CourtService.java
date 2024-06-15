@@ -44,6 +44,27 @@ public class CourtService {
 
     }
 
+    public void editCourt(int court_id, CourtDTO courtDTO){
+        Court court = courtRepository.findById(court_id).get();
+        court.setName(courtDTO.getName());
+        court.setSurface(courtDTO.getSurface());
+
+
+        List<Match> matches = new ArrayList<>();
+        if(!courtDTO.getMatchDate().isEmpty()) {
+            Match match = matchRepository.findByDate(courtDTO.getMatchDate());
+            matches.add(match);
+            court.setMatches(matches);
+        }
+
+        courtRepository.save(court);
+        System.out.println("Court edited!");
+
+
+
+
+    }
+
     public Iterable<Court> gettAllCourts(){
         return courtRepository.findAll();
     }

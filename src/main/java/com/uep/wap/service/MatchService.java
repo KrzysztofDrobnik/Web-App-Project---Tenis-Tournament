@@ -76,6 +76,55 @@ public class MatchService {
 
     }
 
+    public void editMatch(int match_id, MatchDTO matchDTO){
+        Match match = matchRepository.findById(match_id).get();
+        match.setDate(matchDTO.getDate());
+        match.setAdditionalInfo(matchDTO.getAdditional_info());
+        match.setPlayer1(matchDTO.getPlayer_1());
+        match.setPlayer2(matchDTO.getPlayer_2());
+        match.setScore(matchDTO.getScore());
+        match.setWinner(matchDTO.getWinner());
+
+        List<Court> courts = new ArrayList<>();
+        if(!matchDTO.getCourtName().isEmpty()) {
+            Court court = courtRepository.findByName(matchDTO.getCourtName());
+            courts.add(court);
+            match.setCourts(courts);
+        }
+
+        List<Referee> referees = new ArrayList<>();
+        if (!matchDTO.getRefereeLastName().isEmpty()) {
+            Referee referee = refereeRepository.findByLastName(matchDTO.getRefereeLastName());
+            referees.add(referee);
+            match.setReferees(referees);
+        }
+
+        if(!matchDTO.getTournamentStartingDate().isEmpty()) {
+            Tournament tournament = tournamentRepository.findByStartingDate(matchDTO.getTournamentStartingDate());
+            match.setTournament(tournament);
+        }
+
+        List<Player> players = new ArrayList<>();
+        if (matchDTO.getPlayerID() != 0) {
+            Player player = playerRepository.findById(matchDTO.getPlayerID()).get();
+            players.add(player);
+            match.setPlayers(players);
+        }
+
+        if(matchDTO.getStatisticsID() != 0) {
+
+            Statistics statistics = statisticsRepository.findById(matchDTO.getStatisticsID()).get();
+            match.setStatistics(statistics);
+        }
+
+
+        matchRepository.save(match);
+        System.out.println("Match edited!");
+
+
+
+    }
+
     public Iterable<Match> getAllMatches(){
         return matchRepository.findAll();
     }

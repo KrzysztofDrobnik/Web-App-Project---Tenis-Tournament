@@ -51,6 +51,33 @@ public class PlayerService {
 
     }
 
+    public void editPlayer(int player_id, PlayerDTO playerDTO){
+        Player player = playerRepository.findById(player_id).get();
+        player.setNumberOfGames(playerDTO.getNumberOfGames());
+        player.setTournamentsWon(playerDTO.getTournamentsWon());
+        player.setSuccesses(playerDTO.getSuccesses());
+
+        List<Match> matches = new ArrayList<>();
+        if(!playerDTO.getMatchDate().isEmpty()) {
+            Match match = matchRepository.findByDate(playerDTO.getMatchDate());
+            matches.add(match);
+            player.setMatches(matches);
+        }
+
+        if(!playerDTO.getUserLastName().isEmpty()) {
+            User user = userRepository.findByLastName(playerDTO.getUserLastName());
+            player.setUser(user);
+        }
+
+
+
+
+
+        playerRepository.save(player);
+        System.out.println("Player edited!");
+
+    }
+
 
     public Iterable<Player> getAllPlayers(){
         return playerRepository.findAll();

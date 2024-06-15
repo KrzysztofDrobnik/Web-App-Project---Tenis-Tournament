@@ -30,6 +30,13 @@ public class UserController {
 
     }
 
+    @PutMapping(path = "/users/{user_id}")
+    public String editUser(@PathVariable int user_id, @RequestBody UserDTO userDTO){
+        userService.editUser(user_id, userDTO);
+        return "user edited!";
+
+    }
+
     @GetMapping(path = "/users/{user_id}")
     public Optional<User> getUserById(@PathVariable int user_id){
         return userService.getUserById(user_id);

@@ -30,6 +30,13 @@ public class PlayerController {
 
     }
 
+    @PutMapping(path = "/players/{player_id}")
+    public String editPlayers(@PathVariable int player_id, @RequestBody PlayerDTO playerDTO){
+        playerService.editPlayer(player_id, playerDTO);
+        return "Players edited!";
+
+    }
+
     @GetMapping(path = "/players/{player_id}")
     public Optional<Player> findPlayerById(@PathVariable int player_id){
         return playerService.findPlayerById(player_id);

@@ -38,6 +38,24 @@ public class RolesService {
 
     }
 
+    public void editRole(int roles_id, RolesDTO rolesDTO){
+        Roles roles = rolesRepository.findById(roles_id).get();
+        roles.setName(rolesDTO.getName());
+        roles.setPrivileges(rolesDTO.getPrivileges());
+
+        List<User> users = new ArrayList<>();
+        if(!rolesDTO.getUserLastName().isEmpty()) {
+            User user = userRepository.findByLastName(rolesDTO.getUserLastName());
+            users.add(user);
+            roles.setUsers(users);
+        }
+
+
+        rolesRepository.save(roles);
+        System.out.println("Roles edited!");
+
+    }
+
     public Iterable<Roles> getAllRoles(){
         return rolesRepository.findAll();
     }

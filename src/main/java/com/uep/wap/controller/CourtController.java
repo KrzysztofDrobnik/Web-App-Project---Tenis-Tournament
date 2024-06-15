@@ -28,6 +28,12 @@ public class CourtController {
         return "Court added!";
     }
 
+    @PutMapping (path = "/courts/{court_id}")
+    public String editCourt(@PathVariable int court_id, @RequestBody CourtDTO courtDTO){
+        courtService.editCourt(court_id, courtDTO);
+        return "Court edited!";
+    }
+
     @GetMapping(path = "/courts/{court_id}")
     public Optional<Court> findCourtById(@PathVariable int court_id){
         return courtService.findCourtById(court_id);

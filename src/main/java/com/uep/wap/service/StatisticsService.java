@@ -38,6 +38,26 @@ public class StatisticsService {
 
     }
 
+    public void editStatistics(int statistics_id, StatisticsDTO statisticsDTO) {
+        Statistics statistics = statisticsRepository.findById(statistics_id).get();
+        statistics.setAces(statisticsDTO.getAces());
+        statistics.setDoubleFaults(statisticsDTO.getDoubleFaults());
+        statistics.setFirstServe(statisticsDTO.getFirstServe());
+        statistics.setSecondServe(statisticsDTO.getSecondServe());
+        statistics.setWinners(statisticsDTO.getWinners());
+
+        if(!statisticsDTO.getMatchDate().isEmpty()) {
+
+            Match match = matchRepository.findByDate(statisticsDTO.getMatchDate());
+            statistics.setMatch(match);
+        }
+
+        statisticsRepository.save(statistics);
+        System.out.println("Statistics edited!");
+
+
+    }
+
     public Iterable<Statistics> getAllStatistics() {
         return statisticsRepository.findAll();
     }

@@ -23,6 +23,12 @@ public class DrawController {
         return "Draw added!";
     }
 
+    @PutMapping (path = "/draws/{draw_id}")
+    public String editDraw(@PathVariable int draw_id, @RequestBody DrawDTO drawDTO){
+        drawService.editDraw(draw_id, drawDTO);
+        return "Draw edited!";
+    }
+
 
     @GetMapping(path = "/draws")
     public Iterable<Draw> getAllDraws(){

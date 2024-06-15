@@ -31,6 +31,13 @@ public class OrganizerController {
 
     }
 
+    @PutMapping(path = "/organizers/{organizer_id}")
+    public String editOrganizer(@PathVariable int organizer_id, @RequestBody OrganizerDTO organizerDTO){
+        organizerService.editOrganizer(organizer_id, organizerDTO);
+        return "Organizer edited!";
+
+    }
+
     @GetMapping(path = "/organizers/{organizer_id}")
     public Optional<Organizer> findOrganizerById(@PathVariable int organizer_id){
         return organizerService.findOrganizerById(organizer_id);

@@ -28,6 +28,12 @@ public class StatisticsController {
         return "Statistics added!";
     }
 
+    @PutMapping(path = "/statistics/{statistics_id}")
+    public String editStatistics(@PathVariable int statistics_id, @RequestBody StatisticsDTO statisticsDTO) {
+        statisticsService.editStatistics(statistics_id, statisticsDTO);
+        return "Statistics edited!";
+    }
+
     @GetMapping(path = "/statistics/{statisticsId}")
     public Optional<Statistics> findStatisticsById(@PathVariable int statisticsId) {
         return statisticsService.getStatisticsById(statisticsId);
